@@ -1,0 +1,33 @@
+add_action( 'init', 'create_Addtype_hierarchical_taxonomy', 0 );
+ 
+ 
+function create_Addtype_hierarchical_taxonomy() {
+ 
+
+ 
+  $labels = array(
+    'name' => _x( 'Ads-Type', 'taxonomy general name' ),
+    'singular_name' => _x( 'Ads-Type', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Ads-Type' ),
+    'all_items' => __( 'All Ads-Type' ),
+    'parent_item' => __( 'Parent Ads-Type' ),
+    'parent_item_colon' => __( 'Parent Ads-Type' ),
+    'edit_item' => __( 'Edit Ads-Type' ), 
+    'update_item' => __( 'Update Ads-Type' ),
+    'add_new_item' => __( 'Add New Ads-Type' ),
+    'new_item_name' => __( 'New Ads-Typet Name' ),
+    'menu_name' => __( 'Ads-Type' ),
+  );    
+ 
+// Now register the taxonomy
+  register_taxonomy('Ads-Type',array('userads'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'Ads-Type' ),
+  ));
+ 
+}
